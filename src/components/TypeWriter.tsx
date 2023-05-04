@@ -17,7 +17,7 @@ const Typewriter = ({ text, delay = 100, className = '' }: TypeWriterProps) => {
       setIndex(index => index + 1);
     }, delay);
     return () => clearInterval(interval);
-  }, []);
+  }, [delay]);
 
   React.useEffect(() => {
     const interval = setInterval(() => {
