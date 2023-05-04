@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Header from "@/components/header";
 import { FiAlignJustify } from "@react-icons/all-files/fi/FiAlignJustify";
 
-export default function layout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   const [showNavBar, setShowNavBar] = useState(false)
   return (
     <><div id='portfolio'>
