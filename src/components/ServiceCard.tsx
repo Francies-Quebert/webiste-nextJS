@@ -20,7 +20,7 @@ function ServiceCard({ type,description,title }: Prop) {
     }
 
     return (
-        <div className='flex flex-col  items-center justify-center'>
+        <div className='flex flex-col  items-center justify-center pb-10'>
             <Icon size={80} className='text-primary pb-6 ' />
             <SectionTitle title={title} fontSize='text-lg' />
             <div className='w-60 text-center text-dark-theme-text'>{description}

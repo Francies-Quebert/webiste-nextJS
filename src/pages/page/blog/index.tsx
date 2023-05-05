@@ -1,11 +1,14 @@
 import BlogCard from '@/components/BlogCard';
 import PageTitle from '@/components/PageTitle';
 import { FiBook } from '@react-icons/all-files/fi/FiBook';
+import Head from 'next/head';
 import { notFound } from "next/navigation";
 
 
 const BlogPage = ({ posts }: any) => {
-  return (<>      <PageTitle text='My Blogs.' Icon={<FiBook className='text-font-inherit' />} />
+  return (<>
+    <Head><title>My Blog</title></Head>
+    <PageTitle text='My Blogs.' Icon={<FiBook className='text-font-inherit' />} />
     <div className="max-w-2xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-8">Blog</h1>
       {posts.map((post: any) => (
