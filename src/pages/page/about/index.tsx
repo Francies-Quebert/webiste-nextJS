@@ -26,7 +26,7 @@ interface AboutProps {
 
 export const getServerSideProps: GetServerSideProps<AboutProps> = async () => {
   try {
-    const res = await fetch(`${process.env.VERCEL_URL || process.env.BASE_URL}/api/users`);
+    const res = await fetch(`${process.env.BASE_URL}/api/users`);
     const Data = await res.json();
     return {
       props: {
