@@ -1,40 +1,50 @@
-import DownloadButton from '@/components/DownloadButton'
-import PageTitle from '@/components/PageTitle'
-import PersolnalInformation from '@/components/PersolnalInformation'
-import SectionMainTitle from '@/components/SectionMainTitle'
-import SectionTitle from '@/components/SectionTitle'
-import { FiUser } from '@react-icons/all-files/fi/FiUser'
-import React from 'react'
-import { BsLaptop } from "@react-icons/all-files/bs/BsLaptop";
+import DownloadButton from '@/components/DownloadButton';
+import PageTitle from '@/components/PageTitle';
+import PersolnalInformation, { UserItem } from '@/components/PersolnalInformation';
+import SectionMainTitle from '@/components/SectionMainTitle';
+import SectionTitle from '@/components/SectionTitle';
+import { FiUser } from '@react-icons/all-files/fi/FiUser';
+import React from 'react';
+import Image from "next/image";
+import Carousel from '@/components/Carousel';
+import ServiceCard from '@/components/ServiceCard';
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 
 
-function calculateAge(otherDateProp: any) {
-  const birthDate: any = new Date(otherDateProp);
-  const otherDate: any = new Date();
-
-  let years = (otherDate.getFullYear() - birthDate.getFullYear());
-
-  if (otherDate.getMonth() < birthDate.getMonth() ||
-    otherDate.getMonth() == birthDate.getMonth() && otherDate.getDate() < birthDate.getDate()) {
-    years--;
+interface TechData {
+  id: number;
+  path: string;
+  width: number;
+  height: number;
+}
+interface AboutProps {
+  Data: {
+    data: UserItem[];
+    tech: TechData[]
   }
-  return years;
 }
 
-const data = [
-  { label: 'Name', text: 'Francies Feranandes' },
-  { label: 'Age', text: `${calculateAge('10/21/1998')} Years` },
-  { label: 'Residence', text: 'London, United Kingdom' },
-  { label: 'Email', text: 'francies.quebert@gmail.com' },
-  { label: 'Title', text: 'Front End / Full Stack Developer' },
-  { label: 'Freelance', text: 'Available' },
-]
+export const getServerSideProps: GetServerSideProps<AboutProps> = async () => {
+  try {
+    const res = await fetch(`${process.env.VERCEL_URL || process.env.BASE_URL}/api/users`);
+    const Data = await res.json();
+    return {
+      props: {
+        Data,
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return { props: { Data: null } };
+  }
+};
 
-const about = () => {
+
+const about = ({ Data }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
     <div className='max-w-screen-lg mx-auto'>
       <PageTitle text='about me.' Icon={<FiUser className='text-font-inherit' />} />
-      <div className='container pt-10'>
+      <div className='container pt-10 mx-auto'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
           <div className='mb-10'>
             <SectionTitle title={`UI/UX Designer & Developer`} />
@@ -45,16 +55,26 @@ const about = () => {
           </div>
           <div>
             <SectionTitle title={'Personal Information'} />
-            <PersolnalInformation data={data} />
-            <DownloadButton text='DOWNLOAD RESUME' />
+            <PersolnalInformation data={Data.data} />
+            <DownloadButton text='DOWNLOAD RESUME' path='/cv/FranciesFernandes.pdf' />
           </div>
         </div>
+
         <section>
           <SectionMainTitle text='SERVICES' />
           <div>
-            <div>
-            <BsLaptop />
+            <div className='flex justify-between flex-row'>
+              <ServiceCard title='Web Development' type='web' description=' Amet aspernatur delectus maxime ducimus similique Ratione asperiores corporis provident aut libero.' />
+              <ServiceCard title='Web Development' type='web' description=' Amet aspernatur delectus maxime ducimus similique Ratione asperiores corporis provident aut libero.' />
+              <ServiceCard title='Web Development' type='web' description=' Amet aspernatur delectus maxime ducimus similique Ratione asperiores corporis provident aut libero.' />
             </div>
+          </div>
+        </section>
+
+        <section>
+          <SectionMainTitle text='TECHNOLOGIES' />
+          <div>
+            <Carousel items={Data.tech.map(tc => ({ id: tc.id, element: <Image draggable={false} src={tc.path} alt="error" className={`image-tech`} width={tc.width} height={tc.height} />, width: 150 }))} />
           </div>
         </section>
       </div>

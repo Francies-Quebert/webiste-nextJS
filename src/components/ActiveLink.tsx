@@ -30,7 +30,7 @@ const ActiveLink = ({
       const activePathname = new URL(asPath, location.href).pathname
 
       const newClassName =
-        linkPathname === activePathname
+        (linkPathname !== '/' ? activePathname.includes(linkPathname) : linkPathname === activePathname)
           ? `${className} ${activeClassName}`.trim()
           : className
 

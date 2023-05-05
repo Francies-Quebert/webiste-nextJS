@@ -10,7 +10,17 @@ import React from 'react'
 //     { label: 'title', text: 'Front End / Full Stack Developer' },
 // ]
 
-function PersolnalInformation({ data }: { data: { label: string, text: string }[] }) {
+export interface UserItem {
+    label: string;
+    text: string;
+  }
+  
+  interface UserProps {
+    data: UserItem[];
+  }
+
+
+function PersolnalInformation({ data }: UserProps) {
     return (
         <ul>
             {data.map(({ label, text }, i) => {
