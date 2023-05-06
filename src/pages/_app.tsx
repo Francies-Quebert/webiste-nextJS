@@ -9,6 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   return <Layout>
+     <PageLoadingIndicator />
     <AnimatePresence mode="wait">
       <motion.div
         key={router.route}
@@ -16,9 +17,11 @@ export default function App({ Component, pageProps }: AppProps) {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -100 }}
         transition={{ duration: 0.3 }}
-        className='h-full w-full px-[2em] md:px-[4em] py-[3em] relative overflow-auto '
-      ><Component {...pageProps} />
-      <PageLoadingIndicator />
+        className='h-full w-full px-[2em] md:px-[4em] py-[3em] relative overflow-auto'
+      >
+        <div className='page-container'>
+          <Component {...pageProps} />
+        </div>
       </motion.div>
     </AnimatePresence>
   </Layout>
