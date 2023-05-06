@@ -66,7 +66,7 @@ const about = ({ Data }: InferGetServerSidePropsType<typeof getServerSideProps>)
           <section>
             <SectionMainTitle text='SERVICES' />
             <div>
-              <div className='flex justify-between flex-col md:flex-row'>
+              <div className='flex justify-between flex-col lg:flex-row'>
                 <ServiceCard title='Web Development' type='web' description=' Amet aspernatur delectus maxime ducimus similique Ratione asperiores corporis provident aut libero.' />
                 <ServiceCard title='Web Development' type='web' description=' Amet aspernatur delectus maxime ducimus similique Ratione asperiores corporis provident aut libero.' />
                 <ServiceCard title='Web Development' type='web' description=' Amet aspernatur delectus maxime ducimus similique Ratione asperiores corporis provident aut libero.' />
