@@ -6,7 +6,7 @@ import Head from 'next/head'
 export default function Home() {
   return (
     <>
-    <Head><title>Francies Fernandes</title></Head>
+    <Head><title>Francies Quebert Fernandes - Front End Developer</title></Head>
       <main className='h-full w-full blur-bg'>
         <Image src={homeBG} alt={'home page Background'} className='object-cover absolute top-0 right-0' fill={true} priority />
         <div className='relative flex justify-center items-center flex-col h-full z-[2] text-white'>

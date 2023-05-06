@@ -44,7 +44,7 @@ export default function layout({ cointainerClassName = '', setShowNavBar }: { co
           <div className='relative'><Image src={image} alt='picture' className='' priority/>
             <div className='absolute left-0 bottom-0 right-0 flex z-50 py-2 text-center text-xl text-white  font-bold justify-center items-center before:z-[-1] before:absolute before:opacity-80 before:bg-primary before:w-full before:h-full '><div className='font-jacques'>Francies Fernandes</div></div>
           </div>
-          <nav className="nav-menu">
+          <nav className="nav-menu pb-14">
             <ul>
               {
                 navigation.map(({ name, Icon, href }: { name: string, Icon: () => JSX.Element, href: string }) => <li key={name}>

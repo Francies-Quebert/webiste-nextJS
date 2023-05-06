@@ -5,7 +5,8 @@ import { FiAlignJustify } from "@react-icons/all-files/fi/FiAlignJustify";
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [showNavBar, setShowNavBar] = useState(false)
   return (
-    <><div id='portfolio'>
+    <>
+      <div id='portfolio'>
       <div className='border border-white sm:border-0 md:hidden p-3 absolute top-11 right-8 cursor-pointer bg-[#00A3E1] rounded-md z-20' onClick={() => { setShowNavBar(!showNavBar) }}>
         <FiAlignJustify className='text-2xl' />
       </div>
