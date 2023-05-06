@@ -19,9 +19,7 @@ export default function App({ Component, pageProps }: AppProps) {
         transition={{ duration: 0.3 }}
         className='h-full w-full px-[2em] md:px-[4em] py-[3em] relative overflow-auto'
       >
-        <div className='page-container'>
           <Component {...pageProps} />
-        </div>
       </motion.div>
     </AnimatePresence>
   </Layout>
