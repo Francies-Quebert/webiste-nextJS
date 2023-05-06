@@ -12,19 +12,20 @@ const Carousel: React.FC<{ items: Item[] }> = ({ items = [] }) => {
 
 
     return (
-        <Swiper slidesPerView={2} spaceBetween={10} className='' autoplay={{
-            delay: 2500,
+        <Swiper slidesPerView={'auto'} spaceBetween={10} className='' autoplay={{
+            delay: 3000,
             disableOnInteraction: false,
         }}
         breakpoints={{
             640: {
               slidesPerView: 4,
               spaceBetween: 40,
-            },}}
+            },
+        }}
         >
             {items.map((item) => (
-                <SwiperSlide key={item.id} className=''>
-                    <div className="flex justify-center items-center h-[100px]">{item.element as ReactNode}</div>
+                <SwiperSlide  key={item.id} className='justify-center items-center h-[100px]'>
+                    <div className="flex justify-center items-center">{item.element as ReactNode}</div>
                 </SwiperSlide>
             ))}
         </Swiper>

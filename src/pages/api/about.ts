@@ -48,7 +48,7 @@ export default function handler(
     freelance: 'Available',
   };
   const tech: TechData[] = [
-    { id: 1, path: '/icons/next.svg', width: 150, height: 150 },
+    { id: 1, path: '/icons/next.svg', width: 100, height: 100 },
     { id: 2, path: '/icons/js.svg', width: 100, height: 100 },
     { id: 3, path: '/icons/react.svg', width: 100, height: 100 },
     { id: 4, path: '/icons/pgsql.svg', width: 100, height: 60 },

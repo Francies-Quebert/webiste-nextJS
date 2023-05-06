@@ -27,7 +27,7 @@ interface AboutProps {
 
 export const getServerSideProps: GetServerSideProps<AboutProps> = async () => {
   try {
-    const res = await fetch(`${process.env.BASE_URL}/api/users`);
+    const res = await fetch(`${process.env.BASE_URL}/api/about`);
     const Data = await res.json();
     return {
       props: {
@@ -77,7 +77,7 @@ const about = ({ Data }: InferGetServerSidePropsType<typeof getServerSideProps>)
           <section>
             <SectionMainTitle text='TECHNOLOGIES' />
             <div className='pb-10'>
-              <Carousel items={Data.tech.map(tc => ({ id: tc.id, element: <Image draggable={false} src={tc.path} alt="error" className={`image-tech`} width={tc.width} height={tc.height} />, width: 150 }))} />
+              <Carousel items={Data.tech.map(tc => ({ id: tc.id, element: <Image draggable={false} src={tc.path} alt="error" className={`image-tech`} width={tc.width} height={tc.height} /> }))} />
             </div>
           </section>
         </div>
