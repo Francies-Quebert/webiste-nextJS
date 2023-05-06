@@ -3,6 +3,7 @@ import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Layout from "@/components/layout";
 import { AnimatePresence, motion } from 'framer-motion';
+import PageLoadingIndicator from '@/components/Loading';
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -17,6 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
         transition={{ duration: 0.3 }}
         className='h-full w-full px-[2em] md:px-[4em] py-[3em] relative overflow-auto '
       ><Component {...pageProps} />
+      <PageLoadingIndicator />
       </motion.div>
     </AnimatePresence>
   </Layout>
