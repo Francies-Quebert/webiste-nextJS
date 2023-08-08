@@ -6,9 +6,9 @@
 
 @layer base {
   :root {
-    --color: #0d0d0d;
-    --foreground-rgb:#6B6C6D;
-    --background:  #FFF;
+    --color: #FFF;
+    --foreground-rgb: #e1e1e1;
+    --background: #2C2D2F;
     --primary-background:  #00A3E1;
   }
   
